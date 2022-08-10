@@ -44,7 +44,7 @@ let g:buftabline_show       = get(g:, 'buftabline_show',       2)
 let g:buftabline_plug_max   = get(g:, 'buftabline_plug_max',  10)
 
 function! buftabline#user_buffers() " help buffers are always unlisted, but quickfix buffers are not
-	return filter(range(1,bufnr('$')),'buflisted(v:val) && "quickfix" !=? getbufvar(v:val, "&buftype") && "terminal" !=? getbufvar(v:val, "&buftype") && "nofile" !=? getbufvar(v:val, "&buftype")')
+	return filter(range(1,bufnr('$')),'buflisted(v:val) && "quickfix" !=? getbufvar(v:val, "&buftype") && "terminal" !=? getbufvar(v:val, "&buftype") && "nofile" !=? getbufvar(v:val, "&buftype") && "fugitive" !=? getbufvar(v:val, "&filetype")')
 endfunction
 
 function! s:switch_buffer(bufnum, clicks, button, mod)
